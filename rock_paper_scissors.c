@@ -10,8 +10,6 @@ char generateComputerOption(char str[])
 
     int randomIndex = rand() % 3;
 
-    printf("%d\n",randomIndex);
-
     if (randomIndex == 0)
         {
             strcpy(str, "rock");
@@ -36,19 +34,19 @@ void compareOptions(char str1[], char str2[])
     }
     else if (strcmp(str1, "rock") == 0 && strcmp(str2, "scissors") == 0)
     {
-        printf("You lost!\n");
+        printf("You lost! Try again! :)\n");
     } 
     else if (strcmp(str1, "scissors") == 0 && strcmp(str2, "paper") == 0)
     {
-        printf("You lost!\n");
+        printf("You lost! Try again! :)\n");
     } 
     else if (strcmp(str1, "paper") == 0 && strcmp(str2, "rock") == 0)
     {
-        printf("You lost!\n");
+        printf("You lost! Try again! :)\n");
     }
     else
     {
-        printf("You Won!\n");
+        printf("You Won! :)\n");
     }
 }
 
@@ -70,17 +68,10 @@ int main()
     //call a function to generate the random string choice out of 3 choices
     generateComputerOption(computerOption);
     
-    //this loop checks the returned computerOption - DELETE LATER!!!!!!!!!!!!!!!!!!!!!!!
-    for (int i = 0; computerOption[i] != '\0'; i++)
-    {
-        printf("%c", computerOption[i]);
-    }
-    printf("\n");
-
     //initialize a string for user's input
     char usersInput[9];
-    printf("**************************************************\n");
-    printf("Enter your choice (rock, paper or scissors): ");
+    //printf("**************************************************\n");
+    printf("\nEnter your choice (rock, paper or scissors): \n");
     scanf("%s", usersInput);
     
     //loop through user's input
@@ -92,11 +83,11 @@ int main()
         if (isupper(usersInput[i]) > 0)
         {
             usersInput[i] = tolower(usersInput[i]);
-            printf("%c\n", usersInput[i]);
         }
     }
-    
+    printf("\n**************************************************\n\n");
     compareOptions(computerOption, usersInput);
+    printf("\n**************************************************\n\n");
 
     return 0;
 }
