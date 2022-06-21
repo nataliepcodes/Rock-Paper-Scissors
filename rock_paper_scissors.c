@@ -71,9 +71,9 @@ int main()
     //initialize a string for user's input
     char usersInput[9];
     //printf("**************************************************\n");
-    printf("\nEnter your choice (rock, paper or scissors): \n");
+    printf("\nEnter your choice (rock, paper or scissors): ");
     scanf("%s", usersInput);
-    
+
     //loop through user's input
     for (int i = 0; usersInput[i] != '\0'; i++)
     {
@@ -85,6 +85,11 @@ int main()
             usersInput[i] = tolower(usersInput[i]);
         }
     }
+    
+
+   //check for wrong input - if none of the given choices have been entered!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! TO DO !!!!
+
+
     printf("\n**************************************************\n\n");
     compareOptions(computerOption, usersInput);
     printf("\n**************************************************\n\n");
