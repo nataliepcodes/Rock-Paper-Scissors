@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include <stdbool.h>
 
 char generateComputerOption(char str[])
 {
@@ -50,6 +51,20 @@ void compareOptions(char str1[], char str2[])
     }
 }
 
+//check if user's input is correct
+bool correct(char str[])
+{
+    for (int i = 0; str[i] != '\0'; i++)
+    {
+        if(strcmp(str, "rock") == 0 || strcmp(str, "ROCK") == 0 || strcmp(str, "scissors") == 0 || strcmp(str, "SCISSORS") == 0 ||strcmp(str, "paper") == 0 || strcmp(str, "PAPER") == 0) 
+        {
+            return true;
+        }
+    }
+
+    return false;
+}
+
 int main()
 {
     printf("\n**************************************************\n");
@@ -86,13 +101,18 @@ int main()
         }
     }
     
-
-   //check for wrong input - if none of the given choices have been entered!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! TO DO !!!!
-
-
-    printf("\n**************************************************\n\n");
-    compareOptions(computerOption, usersInput);
-    printf("\n**************************************************\n\n");
+    if(!correct(usersInput))
+    {
+        printf("\n**************************************************\n\n");
+        printf("Wrong input! Try rock, paper or scissors! :) \n");
+        printf("\n**************************************************\n\n");
+    }
+    else
+    {
+        printf("\n**************************************************\n\n");
+        compareOptions(computerOption, usersInput);
+        printf("\n**************************************************\n\n");
+    }
 
     return 0;
 }
